@@ -1,26 +1,14 @@
 
 import sys
+import numpy as np
 
 num = int(sys.stdin.read())
+houses = np.full((num // 10 + 1,), 10)
 
-def housePresents(num):
-    res = 1
-    prime = 2
-    while num != 1:
-        this = 1
-        while num % prime == 0:
-            this *= prime
-            num //= prime
-        if this != 1:
-            res *= (this * prime - 1) / (prime - 1)
-        prime += 1
-    return 10 * res
+for i in range(2, len(houses)):
+    houses[i::i] += 10 * i
 
-res = 1
-while housePresents(res) < num:
-    if res % 10000 == 0:
-        print(res, housePresents(res))
-    res += 1
+loc = np.where(houses > num)
 
-print('Result:', res)
+print('Result:', loc[0][0])
 
