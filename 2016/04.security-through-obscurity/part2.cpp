@@ -4,7 +4,6 @@
 using namespace std;
 
 int main() {
-    int count = 0;
     regex pattern("([a-z-]+)-(\\d+)\\[([a-z]+)\\]");
     string line;
     while (getline(cin, line)) {
