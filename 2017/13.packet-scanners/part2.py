@@ -19,8 +19,6 @@ for w in wall:
         for m, i in product(range(mul // comb[0]), comb[1])
         if (comb[0] * m + i) % w[0] in w[1]
     ))
-    if len(comb[1]) == 1:
-        best = comb
 
 print('Result:', min(comb[1]))
 
