@@ -18,7 +18,7 @@ for cmd in cmds:
             acs = ord(a) - ord('a')
             bcs = ord(b) - ord('a')
             part[:,[acs, bcs]] = part[:,[bcs, acs]]
-            
+
 perm = np.linalg.matrix_power(perm, M)
 part = np.linalg.matrix_power(part, M)
 
