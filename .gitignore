@@ -1,4 +1,5 @@
 
+src/
 tmp/
 tmp.*
 .vscode
@@ -11,6 +12,7 @@ compile_flags.txt
 package*.json
 node_modules/
 tsconfig.json
+Cargo.*
 
 # Compiled files
 *.out
@@ -23,4 +25,5 @@ tsconfig.json
 *.cmo
 *.wasm
 obj_dir
+target
 
