@@ -47,8 +47,8 @@ fn write_param(mem: &mut IntMem, state: &IntState, mode: IntValue, addr: IntValu
     }
 }
 
-pub fn run_instr<FI, FO>(mem: &mut IntMem, state: &mut IntState, inp: FI, out: FO)
-    where FI: Fn() -> IntValue, FO: Fn(IntValue)
+pub fn run_instr<FI, FO>(mem: &mut IntMem, state: &mut IntState, mut inp: FI, mut out: FO)
+    where FI: FnMut() -> IntValue, FO: FnMut(IntValue)
 {
     if !state.halt {
         let instr = mem[state.pc];
