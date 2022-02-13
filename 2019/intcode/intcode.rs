@@ -8,14 +8,17 @@ pub fn parse(text: &str) -> IntMem {
         .collect::<IntMem>();
 }
 
+#[derive(Clone)]
 pub struct IntState {
     pub pc: usize,
     pub bp: usize,
     pub halt: bool,
 }
 
-pub fn new_state() -> IntState {
-    return IntState { pc: 0, bp: 0, halt: false };
+impl IntState {
+    pub fn new() -> IntState {
+        return IntState { pc: 0, bp: 0, halt: false };
+    }
 }
 
 fn read_param(mem: &IntMem, state: &IntState, mode: IntValue, val: IntValue) -> IntValue {
