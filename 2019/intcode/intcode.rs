@@ -23,7 +23,7 @@ impl IntState {
 
 fn read_param(mem: &IntMem, state: &IntState, mode: IntValue, val: IntValue) -> IntValue {
     let off = val as usize;
-    let rel = state.bp + off;
+    let rel = state.bp.wrapping_add(off);
     return match mode {
         0 => if off < mem.len() { mem[off] } else { 0 },
         1 => val,
@@ -38,7 +38,7 @@ fn write_param(mem: &mut IntMem, state: &IntState, mode: IntValue, addr: IntValu
         if mode == 0 {
             off = addr as usize;
         } else {
-            off = state.bp + addr as usize;
+            off = state.bp.wrapping_add(addr as usize);
         }
         if off >= mem.len() {
             mem.resize(off + 1, 0);
@@ -104,7 +104,7 @@ pub fn run_instr<FI, FO>(mem: &mut IntMem, state: &mut IntState, mut inp: FI, mu
                 state.pc += 4;
             },
             9 => {
-                state.bp += read_param(mem, state, pm0, mem[state.pc + 1]) as usize;
+                state.bp = state.bp.wrapping_add(read_param(mem, state, pm0, mem[state.pc + 1]) as usize);
                 state.pc += 2;
             },
             _ => {
