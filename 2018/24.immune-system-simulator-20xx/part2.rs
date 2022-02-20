@@ -66,9 +66,6 @@ impl Group {
     }
 }
 
-// 8849
-// 9197
-
 fn immune_units(boost: i64, mut groups: Vec<Group>) -> i64 {
     for x in &mut groups {
         if x.army == 1 {

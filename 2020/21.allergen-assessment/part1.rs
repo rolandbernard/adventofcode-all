@@ -3,8 +3,6 @@ use std::io;
 use std::io::prelude::*;
 use std::collections::*;
 
-// mxmxvkd kfcds sqjhc nhms (contains dairy, fish)
-
 fn main() {
     let stdin = io::stdin();
     let mut foods = Vec::new();

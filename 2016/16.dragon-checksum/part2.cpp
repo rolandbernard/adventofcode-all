@@ -4,7 +4,6 @@
 using namespace std;
 
 #define LENGTH 35651584
-// #define LENGTH 272
 
 char dataAt(size_t cs, size_t at, const string& orig) {
     if (cs == 0) {
