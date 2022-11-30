@@ -1,3 +1,4 @@
 [submodule "2021"]
 	path = 2021
 	url = https://github.com/rolandbernard/adventofcode-2021
+	branch = main
