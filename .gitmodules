@@ -10,3 +10,7 @@
 	path = 2023
 	url = https://github.com/rolandbernard/adventofcode-2023
 	branch = main
+[submodule "2024"]
+	path = 2024
+	url = https://github.com/rolandbernard/adventofcode-2024
+	branch = main
